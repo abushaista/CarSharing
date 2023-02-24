@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Authentication\" />
+    <None Remove="MediatR" />
+    <None Remove="Fleet\" />
+    <None Remove="Abstractions\" />
+    <None Remove="Abstractions\Messaging\" />
+    <None Remove="Authentication\Queries\" />
+    <None Remove="Authentication\Common\" />
+    <None Remove="Authentication\Commads\" />
+    <None Remove="ErrorOr" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Authentication\" />
+    <Folder Include="Fleet\" />
+    <Folder Include="Abstractions\" />
+    <Folder Include="Abstractions\Messaging\" />
+    <Folder Include="Authentication\Queries\" />
+    <Folder Include="Authentication\Common\" />
+    <Folder Include="Authentication\Commads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.0.0" />
+    <PackageReference Include="ErrorOr" Version="1.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarSharing.Domain\CarSharing.Domain.csproj" />
+  </ItemGroup>
+</Project>
