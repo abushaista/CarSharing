@@ -9,9 +9,11 @@
   <ItemGroup>
     <None Remove="Authentication\" />
     <None Remove="Fleet\" />
+    <None Remove="Order\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
     <Folder Include="Fleet\" />
+    <Folder Include="Order\" />
   </ItemGroup>
 </Project>

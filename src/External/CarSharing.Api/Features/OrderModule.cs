@@ -7,6 +7,7 @@ using MediatR;
 using Mapster;
 using CarSharing.Contracts.Fleet;
 using Microsoft.AspNetCore.Authorization;
+using CarSharing.Contracts.Order;
 
 namespace CarSharing.Api.Features
 {
@@ -28,6 +29,21 @@ namespace CarSharing.Api.Features
                         return Results.NotFound(data.Error.Message);
                     }
                     var result = data.Value.Adapt<CarResponse>();
+                    return Results.Ok(result);
+                }
+                return Results.NotFound();
+            });
+
+            app.MapGet("/Order/{licenseNumber}/close", [Authorize] async (HttpRequest req, string licenseNumber, ISender sender) =>
+            {
+                var identity = req.HttpContext.User.Identity as ClaimsIdentity;
+                if(identity != null)
+                {
+                    var userClaims = identity.Claims;
+                    var email = userClaims.First(x => x.Type == ClaimTypes.Email).Value;
+                    CloseOrderCommand command = new CloseOrderCommand(licenseNumber, email);
+                    var data = await sender.Send(command);
+                    var result = data.Value.Adapt<OrderResponse>();
                     return Results.Ok(result);
                 }
                 return Results.NotFound();

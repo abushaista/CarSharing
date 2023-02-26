@@ -11,6 +11,9 @@ using CarSharing.Domain.Repositories;
 using CarSharing.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using CarSharing.Infrastructure.Persistence.Options;
+using CarSharing.Application.Abstractions;
+using CarSharing.Application.Services;
+using CarSharing.Infrastructure.Notifications;
 
 namespace CarSharing.Infrastructure
 {
@@ -24,6 +27,8 @@ namespace CarSharing.Infrastructure
 			services.AddSingleton(Options.Create(jwtSettings));
 			services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 			services.AddSingleton<IPasswordHash, PasswordHash>();
+			services.AddSingleton<IBillCalculator, BillCalculator>();
+			services.AddScoped<IBillService, BillService>();
 
 			services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
 				.AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters

@@ -11,6 +11,9 @@ namespace CarSharing.Domain.Repositories
 		Task<bool> Update(Car car);
 		Task Add(Car car);
 		Task<Car> OrderNearby(int Lan, int Lon);
-	}
+		Task<List<Car>> GetAllCars(string? LicenseNumber, int? Seat, float? MinPrice, float? MaxPrice, int Page, int Rows);
+
+
+    }
 }
 

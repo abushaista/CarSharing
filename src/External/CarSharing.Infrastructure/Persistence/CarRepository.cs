@@ -57,4 +57,27 @@ public class CarRepository : ICarRepository
         
         return true;
     }
+
+    public async Task<List<Car>> GetAllCars(string? LicenseNumber, int? Seat, float? MinPrice, float? MaxPrice, int Page, int Rows)
+    {
+        var query = _dbContext.Set<Car>();
+        if (!string.IsNullOrWhiteSpace(LicenseNumber))
+        {
+            query.Where(x => x.LicenseNumber.Contains(LicenseNumber));
+        }
+        if(Seat != null)
+        {
+            query.Where(x => x.Seat == Seat);
+        }
+        if(MinPrice != null)
+        {
+            query.Where(x => x.Price > MinPrice);
+        }
+        if(MaxPrice != null)
+        {
+            query.Where(x => x.Price < MaxPrice);
+        }
+        query.Skip(Page * Rows).Take(Rows).OrderBy(x => x.Id);
+        return await query.ToListAsync();
+    }
 }

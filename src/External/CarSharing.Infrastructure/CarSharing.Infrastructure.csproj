@@ -18,10 +18,12 @@
     <None Remove="BCrypt.Net-Next" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="appsettings.json" />
+    <None Remove="Notifications\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
     <Folder Include="Persistence\Options\" />
+    <Folder Include="Notifications\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CarSharing.Application\CarSharing.Application.csproj" />

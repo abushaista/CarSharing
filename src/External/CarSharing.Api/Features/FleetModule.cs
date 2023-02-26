@@ -41,6 +41,13 @@ namespace CarSharing.Api.Features
                 var data = result.Value.Adapt<CarRouteResponse>();
                 return Results.Ok(data);
             });
+            app.MapPost("/fleet/all", async (SearchCarRequest request,ISender sender) =>
+            {
+                GetAllFleetQuery query = request.Adapt<GetAllFleetQuery>();
+                var result = await sender.Send(query);
+                var data = result.Value.Adapt<List<CarResponse>>();
+                return Results.Ok(data);
+            });
         }
     }
 }

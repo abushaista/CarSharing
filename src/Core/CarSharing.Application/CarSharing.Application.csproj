@@ -19,6 +19,9 @@
     <None Remove="Fleet\Commands\" />
     <None Remove="Fleet\Common\" />
     <None Remove="Fleet\Queries\" />
+    <None Remove="Order\Common\" />
+    <None Remove="Services\" />
+    <None Remove="Microsoft.Extensions.Options.ConfigurationExtensions" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
@@ -31,10 +34,13 @@
     <Folder Include="Fleet\Commands\" />
     <Folder Include="Fleet\Common\" />
     <Folder Include="Fleet\Queries\" />
+    <Folder Include="Order\Common\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ErrorOr" Version="1.2.1" />
     <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarSharing.Domain\CarSharing.Domain.csproj" />
