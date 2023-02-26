@@ -11,6 +11,6 @@ public class Booking
     public Guid CarId { get; set; }
     public virtual Car? Car { get; set; }
     public DateTime StartDate { get; set; } = DateTime.UtcNow;
-    public DateTime EndDate { get; set; }
+    public DateTime? EndDate { get; set; }
 
 }

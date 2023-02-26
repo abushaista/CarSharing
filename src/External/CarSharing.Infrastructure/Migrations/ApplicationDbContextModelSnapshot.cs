@@ -82,6 +82,9 @@ namespace CarSharing.Infrastructure.Migrations
                     b.Property<int>("Lon")
                         .HasColumnType("integer");
 
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
                     b.Property<int>("Seat")
                         .HasColumnType("integer");
 
@@ -102,7 +105,7 @@ namespace CarSharing.Infrastructure.Migrations
                     b.Property<Guid>("CarId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("StartDate")

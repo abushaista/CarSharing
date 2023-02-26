@@ -19,6 +19,12 @@ public class BookingRepository : IBookingRepository
         return true;
     }
 
+    public async Task<Booking> GetBookingByCarId(Guid Id)
+    {
+        var data = await _dbContext.Set<Booking>().Where(x => x.CarId == Id && x.EndDate == null).FirstOrDefaultAsync();
+        return data;
+    }
+
     public async Task<Booking> GetBookingById(Guid id)
     {
         var data = await _dbContext.Set<Booking>().Where(x => x.Id == id).FirstOrDefaultAsync();

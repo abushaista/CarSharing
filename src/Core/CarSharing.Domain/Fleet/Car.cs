@@ -9,6 +9,7 @@ public class Car
     public int Seat { get; set; } = 2;
     public int Lat { get; set; }
     public int Lon { get; set; }
+    public float Price { get; set; }
     [ConcurrencyCheck]
     public bool Available { get; set; } = true;
     public bool IsActive { get; set; } = true;
