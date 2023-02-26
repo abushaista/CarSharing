@@ -23,7 +23,7 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, Authentic
     {
         if(await _userRepository.GetUserByEmail(request.Email) is not null)
         {
-            return (Result<AuthenticationResult>)Result.Failure(new Error("401", "Email already in used"));
+            return Result.Failure<AuthenticationResult>(new Error("401", "Email already in used"));
         }
         var password = _hash.Generate(request.Password);
         var user = new User { FirstName = request.FirstName, LastName = request.LastName, Email = request.Email, Password = password };

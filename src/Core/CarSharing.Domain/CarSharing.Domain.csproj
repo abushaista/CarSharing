@@ -13,6 +13,7 @@
     <None Remove="Shared\" />
     <None Remove="ErrorOr" />
     <None Remove="Repositories\" />
+    <None Remove="Order\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
@@ -20,6 +21,7 @@
     <Folder Include="Abstracts\" />
     <Folder Include="Shared\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Order\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ErrorOr" Version="1.2.1" />

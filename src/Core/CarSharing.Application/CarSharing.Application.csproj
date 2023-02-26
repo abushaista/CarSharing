@@ -16,6 +16,9 @@
     <None Remove="Authentication\Common\" />
     <None Remove="Authentication\Commads\" />
     <None Remove="ErrorOr" />
+    <None Remove="Fleet\Commands\" />
+    <None Remove="Fleet\Common\" />
+    <None Remove="Fleet\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
@@ -25,10 +28,13 @@
     <Folder Include="Authentication\Queries\" />
     <Folder Include="Authentication\Common\" />
     <Folder Include="Authentication\Commads\" />
+    <Folder Include="Fleet\Commands\" />
+    <Folder Include="Fleet\Common\" />
+    <Folder Include="Fleet\Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.0.0" />
     <PackageReference Include="ErrorOr" Version="1.2.1" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarSharing.Domain\CarSharing.Domain.csproj" />

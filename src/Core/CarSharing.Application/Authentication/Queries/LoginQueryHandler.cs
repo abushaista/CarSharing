@@ -19,10 +19,9 @@ public class LoginQueryHandler : IQueryHandler<LoginQuery, AuthenticationResult>
     public async Task<Result<AuthenticationResult>> Handle(LoginQuery request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetUserByEmail(request.Email);
-        var password = _hash.Generate(request.Password);
-        if(user == null || user.Password != password)
+        if (user == null || !_hash.Verify(request.Password, user.Password))
         {
-            return (Result<AuthenticationResult>)Result.Failure(new Error("401", "Invalid Credential"));
+            return Result.Failure<AuthenticationResult>(new Error("401", "Invalid Credential"));
         }
         var token = _tokenGenerator.GenerateToken(user);
         return new AuthenticationResult(user, token);

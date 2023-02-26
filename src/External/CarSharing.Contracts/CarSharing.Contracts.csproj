@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <None Remove="Authentication\" />
+    <None Remove="Fleet\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
+    <Folder Include="Fleet\" />
   </ItemGroup>
 </Project>
