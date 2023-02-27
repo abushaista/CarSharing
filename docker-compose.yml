@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  carsharing.api:
+    image: ${DOCKER_REGISTRY-}carsharing
+    build:
+      context: .
+      dockerfile: src/External/CarSharing.Api/Dockerfile
